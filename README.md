@@ -2,6 +2,8 @@
 
 Extension of <a href="http://www.dojotoolkit.org/reference-guide/dojox/gfx.html">Dojox.GFX</a> to interact with SVG, Canvas, and VML (zoom, rotate, move, add multi-line text, web fonts, save, etc).  See <a href="http://stelapad.com/">stelapad.com</a> for a demo.
 
+<img src="http://i47.tinypic.com/291cg7r.png" style="height:auto;width:100%;" />
+
 ## Installation
 
 1. Download and extract the zip file of this repository to a web server directory (see humans.txt for a list of included libraries and tools).
