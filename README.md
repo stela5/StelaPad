@@ -46,14 +46,26 @@ Extension of <a href="http://www.dojotoolkit.org/reference-guide/dojox/gfx.html"
 **Q:** If StelaPad is based on Dojo, why is jQuery included?  
 **A:** <a href="http://www.appelsiini.net/projects/jeditable">Jeditable</a> is needed because pure Dojo was buggy here.  Feel free to fork and improve!
 
+**Q:** What components of <a href="http://jqueryui.com/download">jQuery UI</a> are in the demo?  
+**A:** Core, Widget, Mouse, Position, Dragable, Droppable, Resizable, Accordion, Dialog, and the dark-hive theme
+
 **Q:** How do I prepare for deployment (e.g. build, minify)?  
-**A:** Set "isDebug" to false in index.html and then run Google's closure compiler via "dojo-release-1.7.3-src/util/buildscripts/build.sh profile=stelapad action=release" for Linux or "dojo-release-1.7.3-src/util/buildscripts/build.bat profile=stelapad action=release" for Windows.  This will output the result in "dojo/release".
+**A:** Set "isDebug" to false in index.html and then run Google's closure compiler via "dojo-release-1.7.3-src/util/buildscripts/build.sh profile=stelapad action=release" for Linux or "dojo-release-1.7.3-src/util/buildscripts/build.bat profile=stelapad action=release" for Windows.  This will output the result in a new Dojo "release" folder that you can reference in your index.html and json2svg-page.php files.
+
+## IE7 and IE8 limitations
+
+* JavaScript and VML performance is very slow.  <em>Resolution: install <a href="http://www.google.com/chromeframe/index.html?user=true">Google Chrome Frame</a>.</em>
+* <a href="http://en.wikipedia.org/wiki/Base64">Base64</a> support is limited or nonexistent.  Opening projects saved from other browsers may not display images correctly.  <em>Resolution: install <a href="http://www.google.com/chromeframe/index.html?user=true">Google Chrome Frame</a>.</em>
+* <a href="http://caniuse.com/filereader">FileReader</a> is not supported.  Images will be hosted by <a href="http://imm.io/">imm.io</a> with the following restrictions: images deleted after 30 days of inactivity and maximum image size limited to 1600x1600 (4000 pixels).
+* IE7 does not open saved project files correctly.  <em>Resolution: Upgrade to IE 8 <strong>OR</strong> do not use that feature with IE 7 <strong>OR</strong> install <a href="http://www.google.com/chromeframe/index.html?user=true">Google Chrome Frame</a>.</em>
+* IE may display a security warning when attempting to save an image, PDF, or SVG file.  <em>Resolution: Press and hold the "Alt" key while clicking the 'Save As' menu option <strong>OR</strong> follow <a href="http://kb.iu.edu/data/awsi.html">this guide</a> to update your security settings <strong>OR</strong> install <a href="http://www.google.com/chromeframe/index.html?user=true">Google Chrome Frame</a>.</em>
+* <a href="http://en.wikipedia.org/wiki/Vector_Markup_Language">VML</a> does not support web fonts.  <em>Resolution: install <a href="http://www.google.com/chromeframe/index.html?user=true">Google Chrome Frame</a> <strong>OR</strong> use the default Helvetica font <strong>OR</strong>:</em>
 
 ## StelaPad (dojox/stelapad) and the demo files are Dual-Licensed
 
 Copyright (c) 2012, <a href="http://stela5.com/">Stela 5</a>
 
-* <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a>
+* <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a> or
 * <a href="http://www.opensource.org/licenses/GPL-2.0">GPL v2 (or later)</a>
 
 (see humans.txt for other licensed material used herein)
