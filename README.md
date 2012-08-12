@@ -49,8 +49,17 @@ Extension of <a href="http://www.dojotoolkit.org/reference-guide/dojox/gfx.html"
 **Q:** What components of <a href="http://jqueryui.com/download">jQuery UI</a> are in the demo?  
 **A:** Core, Widget, Mouse, Position, Dragable, Droppable, Resizable, Accordion, Dialog, and the dark-hive theme
 
+**Q:** When loading a saved project, my text is out of place.  What do I do?
+**A:** If your project is loading web fonts, the font may not have had time to finish downloading before the text was rendered.  To resolve this, wait a minute or two to allow the fonts to finish loading into your browser's cache and then select <em>File &gt; Open Project</em> from the StelaPad menu and re-open your desired project.
+
+**Q:** The custom fonts don't show up in my SVG viewer.  What do I do?
+**A:** Unfortunately, many desktop SVG editors and viewers (such as <a href="http://inkscape.org/">Inkscape</a> and <a href="http://projects.gnome.org/eog/">Eye of GNOME</a>) do not support web fonts.  We recommend you open a ticket with the respective application owner to request this feature be added to their tool.  In the meantime, a workaround fix is to install the font locally as described in the <a href="#help5">IE8 limitations section</a> below.  As of this writing, all SVG-capable browsers support <a href="http://caniuse.com/fontface">@font-face</a> and the <a href="http://xmlgraphics.apache.org/batik/tools/browser.html">Squiggle browser</a> supports SVG's <a href="http://www.w3.org/TR/SVG/fonts.html#FontFaceElement">native font-face</a> tag.
+
 **Q:** How do I prepare for deployment (e.g. build, minify)?  
 **A:** Set "isDebug" to false in index.html and then run Google's closure compiler via "dojo-release-1.7.3-src/util/buildscripts/build.sh profile=stelapad action=release" for Linux or "dojo-release-1.7.3-src/util/buildscripts/build.bat profile=stelapad action=release" for Windows.  This will output the result in a new Dojo "release" folder that you can reference in your index.html and json2svg-page.php files.
+
+**Q:** How does it work?  
+**A:** The editor combines regular (raster) images with <a href="http://en.wikipedia.org/wiki/Vector_graphics">vector graphics</a>.  It uses your browser's native vector graphics engine &ndash; <a href="http://en.wikipedia.org/wiki/Vml">VML</a> for IE 7/8 and <a href="http://en.wikipedia.org/wiki/Svg">SVG</a> for the rest (or <a href="http://en.wikipedia.org/wiki/Canvas_element">Canvas</a> if you append <a href="editor.html?canvas=true">?canvas=true</a>).  Vector images are converted by <a href="https://github.com/stela5/svg2json">svg2json</a> and managed by a custom library that extends <a href="http://dojotoolkit.org/reference-guide/dojox/gfx.html">GFX</a>.
 
 ## IE7 and IE8 limitations
 
@@ -59,7 +68,7 @@ Extension of <a href="http://www.dojotoolkit.org/reference-guide/dojox/gfx.html"
 * <a href="http://caniuse.com/filereader">FileReader</a> is not supported.  Images will be hosted by <a href="http://imm.io/">imm.io</a> with the following restrictions: images deleted after 30 days of inactivity and maximum image size limited to 1600x1600 (4000 pixels).
 * IE7 does not open saved project files correctly.  <em>Resolution: Upgrade to IE 8 <strong>OR</strong> do not use that feature with IE 7 <strong>OR</strong> install <a href="http://www.google.com/chromeframe/index.html?user=true">Google Chrome Frame</a>.</em>
 * IE may display a security warning when attempting to save an image, PDF, or SVG file.  <em>Resolution: Press and hold the "Alt" key while clicking the 'Save As' menu option <strong>OR</strong> follow <a href="http://kb.iu.edu/data/awsi.html">this guide</a> to update your security settings <strong>OR</strong> install <a href="http://www.google.com/chromeframe/index.html?user=true">Google Chrome Frame</a>.</em>
-* <a href="http://en.wikipedia.org/wiki/Vector_Markup_Language">VML</a> does not support web fonts.  <em>Resolution: install <a href="http://www.google.com/chromeframe/index.html?user=true">Google Chrome Frame</a> <strong>OR</strong> use the default Helvetica font <strong>OR</strong>:</em>
+* <a href="http://en.wikipedia.org/wiki/Vector_Markup_Language">VML</a> does not support web fonts.  <em>Resolution: install <a href="http://www.google.com/chromeframe/index.html?user=true">Google Chrome Frame</a> <strong>OR</strong> use the default Helvetica font
 
 ## StelaPad (dojox/stelapad) and the demo files are Dual-Licensed
 
