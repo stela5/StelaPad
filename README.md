@@ -50,11 +50,9 @@ Extension of <a href="http://www.dojotoolkit.org/reference-guide/dojox/gfx.html"
 **A:** Core, Widget, Mouse, Position, Dragable, Droppable, Resizable, Accordion, Dialog, and the dark-hive theme
 
 **Q:** When loading a saved project, my text is out of place.  What do I do?
-
 **A:** If your project is loading web fonts, the font may not have had time to finish downloading before the text was rendered.  To resolve this, wait a minute or two to allow the fonts to finish loading into your browser's cache and then select <em>File &gt; Open Project</em> from the StelaPad menu and re-open your desired project.
 
 **Q:** The custom fonts don't show up in my SVG viewer.  What do I do?
-
 **A:** Unfortunately, many desktop SVG editors and viewers (such as <a href="http://inkscape.org/">Inkscape</a> and <a href="http://projects.gnome.org/eog/">Eye of GNOME</a>) do not support web fonts.  We recommend you open a ticket with the respective application owner to request this feature be added to their tool.  In the meantime, a workaround fix is to install the font locally as described in the <a href="#help5">IE8 limitations section</a> below.  As of this writing, all SVG-capable browsers support <a href="http://caniuse.com/fontface">@font-face</a> and the <a href="http://xmlgraphics.apache.org/batik/tools/browser.html">Squiggle browser</a> supports SVG's <a href="http://www.w3.org/TR/SVG/fonts.html#FontFaceElement">native font-face</a> tag.
 
 **Q:** How do I prepare for deployment (e.g. build, minify)?  
