@@ -1,0 +1,77 @@
+#image {
+	width: 235px !important;		
+}
+
+.header {
+	behavior: url("assets/PIE.htc");
+}
+
+.icon {
+	behavior: url("assets/PIE.htc");
+}
+
+#navigation {
+	padding: 7px 5px 0 5px;
+	behavior: url("assets/PIE.htc");
+}
+
+.footer {
+	border: none;
+	left: -2px;
+	behavior: url("assets/PIE.htc");
+}
+
+#accordionResizer {
+	behavior: url("assets/PIE.htc");
+}
+
+#toolbar-container {
+	behavior: url("assets/PIE.htc");
+}
+
+#sp {
+	top: 0;
+	margin-top: 2px;	
+	behavior: url("assets/PIE.htc");
+}
+
+.memu ul {
+	behavior: url("assets/PIE.htc");
+}
+
+.memu a, .memu li > div {
+	background-color: rgb(255, 255, 255);
+}
+
+.memu li.has-children > a {
+	background-color: rgb(255, 255, 255);
+}
+
+.memu-current {
+	background-color: #abcdef !important;
+}
+
+#fontText {
+	margin-bottom: 3px;
+}
+
+.color_picker {
+	margin-left: 0;	
+}
+
+#staticContent {
+	behavior: url("assets/PIE.htc");
+}
+
+#slideshow {
+	behavior: url("assets/PIE.htc");
+}
+
+.centerButton {
+	-pie-background: linear-gradient(#3e779d, #65a9d7);
+	behavior: url("assets/PIE.htc");
+}
+
+#tinybox {
+	behavior: url("assets/PIE.htc");
+}

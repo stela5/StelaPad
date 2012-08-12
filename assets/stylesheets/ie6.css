@@ -1,0 +1,9 @@
+
+#chromeFrameCloseButton {
+	visibility: hidden;
+}
+
+.chromeFrameOverlayUnderlay {
+	background-color: black;
+	filter: alpha(opacity=90);
+}

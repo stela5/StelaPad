@@ -1,0 +1,66 @@
+/* TEAM */
+	Stela 5: http://stela5.com
+	The Bubble Project: http://en.wikipedia.org/wiki/The_Bubble_Project
+
+/* SITE */
+	Callouts: http://clipart.nicubunu.ro/?gallery=callouts
+	CloudFlare: https://www.cloudflare.com/
+	CSS3 PIE: http://css3pie.com/
+	curl: http://curl.haxx.se/
+	Fugue icons: http://p.yusukekamiyamane.com/
+	GFX: http://dojotoolkit.org/reference-guide/dojox/gfx.html
+	Google Chrome Frame: http://code.google.com/chrome/chromeframe/
+	Google Web Fonts & WebFont Loader: http://code.google.com/apis/webfonts/
+	imm.io: http://imm.io/
+	Internet.bs: http://www.internetbs.net/
+	Jeditable: http://www.appelsiini.net/projects/jeditable
+	jQuery: http://jquery.com/
+	jQuery File Upload: https://github.com/blueimp/jQuery-File-Upload/wiki/Basic-plugin
+	jQuery UI: http://jqueryui.com/
+	JustVector Social Icons: http://www.alexpeattie.com/projects/justvector_icons/
+	Memu: http://codebrewery.blogspot.com/2011/01/memu-simple-css-javascript-jquery-menu.html
+	mod_pagespeed: http://code.google.com/speed/page-speed/docs/module.html
+	PhantomJS: http://www.phantomjs.org/
+	TinyBox: http://www.scriptiny.com/2009/05/javascript-popup-box/
+	WebFaction: http://www.webfaction.com/
+
+/* THANKS */
+	CodeDread: http://codedread.com/
+	CSS dropdown tutorial: http://www.jankoatwarpspeed.com/post/2009/07/28/reinventing-drop-down-with-css-jquery.aspx
+	CSS Sprite Generator: http://spritegen.website-performance.org/
+	curl tutorial: http://dtbaker.com.au/random-bits/uploading-a-file-using-curl-in-php.html
+	Dojo iFrame tutorial: http://www.mikejuniper.com/2009/03/fun-with-dojoioiframesend/
+	Eclipse PDT: http://www.eclipse.org/projects/project.php?id=tools.pdt
+	Fabric.js: https://github.com/kangax/fabric.js
+	Favicon Generator: http://tools.dynamicdrive.com/favicon/
+	Firebug: http://getfirebug.com/
+	Footer tutorial: http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
+	Geometric Flower tutorial: http://abduzeedo.com/reader-tutorial-geometric-flower-effect-logo-illustrator
+	Gist: https://gist.github.com/stela5
+	GitHub: https://github.com/stela5
+	Google Closure Compiler: https://developers.google.com/closure/compiler/
+	HTML 5 Boilerplate: http://html5boilerplate.com/
+	HTML 5 Rocks: http://www.html5rocks.com/
+	HTML 5 Test: http://html5test.com/
+	Humans TXT: http://humanstxt.org/
+	Image load tutorial: http://davidwalsh.name/image-load-event
+	Inkscape: http://inkscape.org/
+	JavaScript base64 decoder: http://ostermiller.org/calc/encode.html
+	JSONLint: http://jsonlint.com/
+	Lubuntu: https://wiki.ubuntu.com/Lubuntu
+	Marketing Script font: http://www.fontsquirrel.com/fonts/Marketing-Script
+	Meld: http://meld.sourceforge.net/
+	Page Speed: http://code.google.com/speed/page-speed/
+	RegExr: http://gskinner.com/RegExr/
+	SitePen: http://www.sitepen.com/blog/2008/09/25/security-in-ajax/
+	Slideshow tutorial: http://tutorialzine.com/2011/01/how-to-make-auto-advancing-slideshows/
+	Stackoverflow: http://stackoverflow.com/
+	SVG authoring guidelines: https://jwatt.org/svg/authoring/
+	SVG icon: http://raphaeljs.com/icons/
+	svg-edit: http://code.google.com/p/svg-edit/
+	Tutorialzine: http://tutorialzine.com/
+	Vector Magic: http://vectormagic.com/home
+	W3C SVG 1.1 (Second Edition): http://www.w3.org/TR/SVG/
+	Web Developer: http://chrispederick.com/work/web-developer/
+	When Can I Use: http://caniuse.com/
+	YSlow: http://developer.yahoo.com/yslow/

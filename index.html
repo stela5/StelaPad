@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns:v="urn:schemas-microsoft-com:vml"
+	xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,maximum-scale=1.0">
+<meta name="description" content="StelaPad is an open source collage editor which supports both vector (svg) and raster (jpg/png) graphics.">
+<title>StelaPad Editor</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="author" href="humans.txt" />
+<link rel="stylesheet" href="assets/stylesheets/jquery-ui-1.8.20.custom.css" />
+<link rel="stylesheet" href="assets/stylesheets/memu-0.1.css" />
+<link rel="stylesheet" href="assets/stylesheets/editor.css" />
+<!--[if gte IE 9]>
+	<style type="text/css">
+		#image { width: 235px !important; }
+	</style>
+<![endif]-->
+<!--[if IE 8]>
+	<link rel="stylesheet" href="assets/stylesheets/ie8.css" />
+<![endif]-->
+<!--[if IE 7]>
+	<link rel="stylesheet" href="assets/stylesheets/ie7.css" />
+<![endif]-->
+<!--[if lt IE 7]>
+	<link rel="stylesheet" href="assets/stylesheets/ie6.css" />
+<![endif]-->
+<!--[if lt IE 9]>
+	<style type="text/css">
+		v\:rect, v\:roundrect, v\:line, v\:polyline, v\:curve, v\:arc, v\:oval, v\:image, v\:shape, v\:group, v\:skew, v\:stroke, v\:fill {
+			behavior: url(#default#VML);
+			display: inline-block;
+		}
+	</style>
+<![endif]-->
+</head>
+<body>
+<div id="tinymask" style="height: 100%; opacity: 0.8; display: block; width: 100%;"></div>
+<div id="tinybox" style="height: 90px; width: 300px; top: 25%; left: 35%; opacity: 1; display: block; background-image: none;">
+	<div id="tinycontent" style="display: block;">
+		<div>
+			<img id="close" src="assets/img/icons/close.png" style="display:none;">
+			<img id="splogo" src="assets/img/stelapad-logo-beta.png">
+			<div id="loading">
+				Loading....<img id="ajaxloader" src="assets/img/ajax-loader.gif">
+				<noscript><div id="nojs">Error: Please enable JavaScript to continue!</div></noscript>
+			</div>
+		</div>
+		<div id="loaded">
+			<div class="button" id="btnImage">
+				<img src="assets/img/icons/map.png"><span class="menu2 title">Select image</span><span class="menu2 subtitle">Upload image or specify a URL</span>
+			</div>
+			<div class="button" id="btnNew">
+				<img src="assets/img/icons/document-horizontal.png"><span class="menu2 title">Create blank</span><span class="menu2 subtitle">Start with a blank canvas</span>
+			</div>
+			<div class="button" id="btnProject">
+				<img src="assets/img/icons/folder-horizontal.png"><span class="menu2 title">Open project</span><span class="menu2 subtitle">Browse computer for a StelaPad project</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="gwf" style="background-image: none;">
+	<div style="display:block;background:#fff;">
+		<img id="close2" src="assets/img/icons/close.png">
+		<div class="alphabet">
+			<a href="#">A</a><a href="#">B</a><a href="#">C</a><a href="#">D</a>
+			<a href="#">E</a><a href="#">F</a><a href="#">G</a><a href="#">H</a>
+			<a href="#">I</a><a href="#">J</a><a href="#">K</a><a href="#">L</a>
+			<a href="#">M</a><a href="#">N</a><a href="#">O</a><a href="#">P</a>
+			<a href="#">Q</a><a href="#">R</a><a href="#">S</a><a href="#">T</a>
+			<a href="#">U</a><a href="#">V</a><a href="#">W</a><a href="#">X</a>
+			<a href="#">Y</a><a href="#">Z</a>
+		</div>
+		<div class="gwf">
+			<span id="gwfLoading" style="display:none;color:#303030;font-size:1.2em;font-style:italic;">Loading...</span>
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+			<div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+			<div></div><div></div><div></div><div></div><div></div>
+		</div>
+	</div>
+</div>
+<div id="container">
+	<a href="https://github.com/stela5"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+	<div class="header">
+		<div id="logo"><img src="assets/img/stelapad-logo-beta.png" width="267px" height="56px" alt="StelaPad" /></div>
+		<div id="banner">
+			<a href="index.html" class="homeIcon icon" title="Home">Home</a> Editor <span id="path">»&nbsp;&nbsp;<span id="project">project 1</span></span>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="clear"></div>
+			<div id="memu-container"><span id="toolbar-container">&nbsp;</span>
+				<ul class="memu">
+					<li class="memu-root">
+						<a href="#"><span class="sprite sprite-category"></span>File</a>
+						<ul>
+							<li><a href="#" id="newProject"><span class="sprite sprite-document"></span>New Project</a></li>
+							<li><a href="#" id="openProject"><span class="sprite sprite-folder-horizontal-open"></span>Open Project</a></li>
+							<li><a href="#" id="renameProject"><span class="sprite sprite-selection-input"></span>Rename Project</a></li>
+							<li class="has-children">
+								<a href="#"><span class="sprite sprite-disk-black"></span>Save As</a>
+								<ul>
+									<li><a href="#" id="saveProject"><span class="sprite sprite-asterisk"></span>Project</a></li>
+									<li><a href="#" id="saveImage"><span class="sprite sprite-document-image"></span>Image</a></li>
+									<li><a href="#" id="savePdf"><span class="sprite sprite-document-pdf"></span>PDF</a></li>
+									<li><a href="#" id="saveSvg"><span class="sprite sprite-application-block"></span>SVG</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="memu-root">
+						<a href="#"><span class="sprite sprite-application-blue"></span>Pad</a>
+						<ul>
+							<li><a href="#" id="addImage"><span class="sprite sprite-image-sunset"></span>Add Image</a></li>
+							<li><a href="#" id="setBackground"><span class="sprite sprite-picture--exclamation"></span>Set Background</a></li>
+							<li><a href="#" id="resizeSurface"><span class="sprite sprite-task--exclamation"></span>Resize Surface</a></li>
+							<li><a href="#" id="clearSurface"><span class="sprite sprite-layer--exclamation"></span>Clear Surface</a></li>
+						</ul>
+					</li>
+					<li class="memu-root">
+						<a href="#"><span class="sprite sprite-layer-select"></span>Shape</a>
+						<ul>
+							<li><a href="#" id="moveToFront"><span class="sprite sprite-layers-stack-arrange"></span>Move to Front</a></li>
+							<li><a href="#" id="moveToBack"><span class="sprite sprite-layers-stack-arrange-back"></span>Move to Back</a></li>
+							<li><a href="#" id="rotateRight"><span class="sprite sprite-layer-rotate"></span>Rotate Right</a></li>
+							<li><a href="#" id="rotateLeft"><span class="sprite sprite-layer-rotate-left"></span>Rotate Left</a></li>
+							<li><a href="#" id="rotateReset"><span class="sprite sprite-ui-button-default"></span>Reset Rotation</a></li>
+							<li><a href="#" id="scaleToFit"><span class="sprite sprite-layer-resize"></span>Scale to Fit</a></li>
+							<li><a href="#" id="deselectAll"><span class="sprite sprite-layer"></span>Deselect</a></li>
+							<li><a href="#" id="removeSelected"><span class="sprite sprite-cross"></span>Remove</a></li>
+						</ul>
+					</li>	
+					<li class="memu-root" id="liDropdown">						
+						<dl class="dropdown">
+							<dt><a href="#"><span>Helvetica</span></a></dt>
+							<dd>
+								<ul>
+									<li><a href="#" style="color:#AAAAAA;font-size:1em;font-style:italic;">Add more...</a></li>
+									<li><a href="#" style="font-family:'Helvetica'">Helvetica</a></li>
+								</ul>
+							</dd>
+						</dl>
+					</li>
+					<li class="memu-root" style="position:absolute;right:0;">
+						<a href="#" id="status" style="width:85px;"><img id="statusImg" src="assets/img/icons/application-monitor.png" style="vertical-align:top">&nbsp; Status</a>
+					</li>
+				</ul>
+				<input id="colorPicker" type="text" name="colorPicker" value="#000000" />
+				<div id="sp" class="droppable-photos-container"></div>
+			</div>
+			<div id="accordionResizer" class="ui-widget-content ui-resizable">
+				<div id="accordion">
+					<div>
+						<h3><a href="#">Bubbles</a></h3>
+						<ul class="droppable-gallery"> 
+						    <li class="droppable-img-content"> 
+								<img id="round_l" class="img-content ui-draggable" src="assets/img/accordion/round_l.png" alt="round_l" title="round_l" /> 
+								<img id="round_c" class="img-content ui-draggable" src="assets/img/accordion/round_c.png" alt="round_c" title="round_c" /> 
+								<img id="round_r" class="img-content ui-draggable" src="assets/img/accordion/round_r.png" alt="round_r" title="round_r" />
+						    	<img id="ellipse_l" class="img-content ui-draggable" src="assets/img/accordion/ellipse_l.png" alt="ellipse_l" title="ellipse_l" /> 
+								<img id="ellipse_c" class="img-content ui-draggable" src="assets/img/accordion/ellipse_c.png" alt="ellipse_c" title="ellipse_c" /> 
+								<img id="ellipse_r" class="img-content ui-draggable" src="assets/img/accordion/ellipse_r.png" alt="ellipse_r" title="ellipse_r" />
+						    	<img id="cloud_l" class="img-content ui-draggable" src="assets/img/accordion/cloud_l.png" alt="cloud_l" title="cloud_l" /> 
+								<img id="cloud_c" class="img-content ui-draggable" src="assets/img/accordion/cloud_c.png" alt="cloud_c" title="cloud_c" /> 
+								<img id="cloud_r" class="img-content ui-draggable" src="assets/img/accordion/cloud_r.png" alt="cloud_r" title="cloud_r" /> 
+						    	<img id="rect_l" class="img-content ui-draggable" src="assets/img/accordion/rect_l.png" alt="rect_l" title="rect_l" /> 
+								<img id="rect_c" class="img-content ui-draggable" src="assets/img/accordion/rect_c.png" alt="rect_c" title="rect_c" /> 
+								<img id="rect_r" class="img-content ui-draggable" src="assets/img/accordion/rect_r.png" alt="rect_r" title="rect_r" />
+						    	<img id="rnd_rect_l" class="img-content ui-draggable" src="assets/img/accordion/rnd_rect_l.png" alt="rnd_rect_l" title="rnd_rect_l" /> 
+								<img id="rnd_rect_c" class="img-content ui-draggable" src="assets/img/accordion/rnd_rect_c.png" alt="rnd_rect_c" title="rnd_rect_c" /> 
+								<img id="rnd_rect_r" class="img-content ui-draggable" src="assets/img/accordion/rnd_rect_r.png" alt="rnd_rect_r" title="rnd_rect_r" />
+						    	<img id="segmented_l" class="img-content ui-draggable" src="assets/img/accordion/segmented_l.png" alt="segmented_l" title="segmented_l" /> 
+								<img id="segmented_c" class="img-content ui-draggable" src="assets/img/accordion/segmented_c.png" alt="segmented_c" title="segmented_c" /> 
+								<img id="segmented_r" class="img-content ui-draggable" src="assets/img/accordion/segmented_r.png" alt="segmented_r" title="segmented_r" />
+						    	<img id="starred_l" class="img-content ui-draggable" src="assets/img/accordion/starred_l.png" alt="starred_l" title="starred_l" /> 
+								<img id="starred_c" class="img-content ui-draggable" src="assets/img/accordion/starred_c.png" alt="starred_c" title="starred_c" /> 
+								<img id="starred_r" class="img-content ui-draggable" src="assets/img/accordion/starred_r.png" alt="starred_r" title="starred_r" />
+						    </li> 
+						</ul>
+					</div>
+					<div>
+						<h3><a href="#">Labels</a></h3>
+						<ul class="droppable-gallery"> 
+						    <li class="droppable-img-content"> 
+								<img id="cloud" class="img-content ui-draggable" src="assets/img/accordion/cloud.png" alt="cloud" title="cloud" /> 
+							    <img id="segmented" class="img-content ui-draggable" src="assets/img/accordion/segmented.png" alt="segmented" title="segmented" /> 
+							    <img id="starred" class="img-content ui-draggable" src="assets/img/accordion/starred.png" alt="starred" title="starred" /> 
+						    </li> 
+						</ul>
+					</div>
+					<div>
+						<h3><a href="#">Sneak Preview</a></h3>
+						<ul class="droppable-gallery"> 
+						    <li class="droppable-img-content"> 
+								<img id="butterfly" class="img-content ui-draggable" src="assets/img/accordion/butterfly.png" alt="butterfly" title="butterfly" /> 
+								<img id="laptop" class="img-content ui-draggable" src="assets/img/accordion/laptop.png" alt="laptop" title="laptop" /> 
+								<img id="tiger" class="img-content ui-draggable" src="assets/img/accordion/tiger.png" alt="tiger" title="tiger" /> 
+							</li> 
+						</ul>
+					</div>
+				</div>
+			</div>
+		<div class="clear"></div>
+	</div>
+	<div class="footer">
+		<div class="copyright">
+			&copy; 2012 <a href="http://stela5.com" target="_blank">Stela 5</a>
+			&nbsp;<a href="https://github.com/stela5" target="_blank"><img src="assets/img/icons/github.png" alt="G" title="Github" /></a>
+			&nbsp;<a href="humans.txt" target="_blank"><img src="assets/img/icons/humanstxt.png" alt="H" title="Humans TXT" /></a>
+			&nbsp;<span id="html5icon" style="visibility:hidden"><a href="http://html5test.com/" target="_blank"><img src="assets/img/icons/html5.png" alt="T" title="HTML 5" /></a></span>
+		</div>
+	</div>
+</div>
+
+<div id="openProjectDialog" title="Open Project">
+	<p style="padding-top:10px;"><input type="file" name="openProjectFile" id="openProjectFile" size="15" style="width:260px" class="ui-widget-content ui-corner-all" /></p>
+	<p style="padding-top:12px;padding-left:4px;font-size:0.95em;"><em>(project files have a .json extension)</em></p>
+	<div id="projectLoadingPleaseWait" style="color:#00BBFF;display:none;padding-top:10px;">Loading project.  Please wait...</div>
+	<p id="projectWarning" style="display:none;padding-top:10px;color:#FFC700;"><em>Warning: The surface will be permanently cleared and cannot be recovered.</em></p>
+</div>
+<div id="renameProjectDialog" title="Rename Project">
+	<p style="padding-top:10px;"><input type="text" name="renameProjectText" id="renameProjectText" size="25" maxlength="40" class="text ui-widget-content ui-corner-all" /></p>
+</div>
+<div id="clearSurfaceDialog" title="Clear Surface?">
+	<p class="warn">Warning: The surface will be permanently cleared and cannot be recovered. &nbsp;Are you sure?</p>
+</div>
+<div id="openImageDialog" title="Select Image">
+	<form id="imageForm" action="imm-io.php" method="post" enctype="multipart/form-data" target="xd">
+	<p style="padding-top:10px;padding-bottom:10px;">Upload: <input type="file" name="image" id="image" size="7" style="width:99px" class="ui-widget-content ui-corner-all" /></p>
+	<div id="imageUploadingPleaseWait" style="color:#00BBFF;display:none">Uploading image.  Please wait...</div>
+	<p style="padding-top:10px;padding-bottom:10px;">URL: <input type="text" name="imageUrl" id="imageUrl" value="http://" size="15" class="ui-widget-content ui-corner-all" /> <button type="button" id="imageUrlButton">&nbsp;Apply&nbsp;</button></p>
+	<p id="imageWarning" class="warn" style="display:none"><em>Warning: The surface will be permanently cleared and cannot be recovered.</em></p>
+	</form>
+</div>
+<div id="resizeSurfaceDialog" title="Resize Surface">
+	<p style="padding-top:10px;padding-bottom:10px;">Width: <input type="text" name="surfaceWidth" id="surfaceWidth" size="3" maxlength="10" class="ui-widget-content ui-corner-all" />px &nbsp; Height: <input type="text" name="surfaceHeight" id="surfaceHeight" size="3" maxlength="10" class="ui-widget-content ui-corner-all" />px</p>
+	<p style="padding-top:5px;padding-bottom:15px;"><button type="button" id="resizeSurfaceButton">&nbsp;Apply&nbsp;</button></p>
+	<p class="warn"><em>Warning: The surface will be permanently cleared and cannot be recovered.</em></p>
+</div>
+<div id="statusDialog" title="Status Log">
+	<table id="statusTable" style="width:100%;border:0;">
+		<tbody>
+			<tr><td width="25%">&mdash;</td><td width="11%" class="info">info</td><td>Log initialized</td></tr>
+		</tbody>
+	</table>
+</div>
+
+<iframe id="xd" name="xd" src="about:blank" style="visibility:hidden; width:1px; height:1px;"></iframe>
+
+<!--[if lt IE 7]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay",url:"//www.google.com/chromeframe/index.html?user=true"})})</script>
+<![endif]-->
+
+<script src="assets/scripts/jquery-1.7.2.min.js"></script>
+<script src="assets/scripts/jquery-ui-1.8.20.custom.min.js"></script>
+
+<script src="assets/scripts/jquery.colorPicker.js"></script>
+<script src="assets/scripts/jquery.jeditable.mini.js"></script>
+<script src="assets/scripts/jquery.ostermiller.js"></script>
+<script src="assets/scripts/jquery.iframe-transport.js"></script>
+<script src="assets/scripts/jquery.fileupload.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/webfont/1.0.23/webfont.js"></script>
+
+<script src="assets/scripts/dojo-release-1.7.3-src/dojo/dojo.js" data-dojo-config="async:true,isDebug:true,gfxRenderer:'svg,canvas,vml'"></script>
+<script src="assets/scripts/blur-2.0.js"></script>
+<script src="assets/scripts/shadow-2.0.js"></script>
+
+<script src="assets/scripts/editor.js"></script>
+
+</body>
+</html>

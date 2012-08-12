@@ -1,0 +1,47 @@
+#image {
+	width: 235px !important;		
+}
+
+.header {
+	behavior: url("assets/PIE.htc");
+}
+
+.icon {
+	behavior: url("assets/PIE.htc");
+}
+
+#navigation {
+	behavior: url("assets/PIE.htc");
+}
+
+.footer {
+	behavior: url("assets/PIE.htc");
+}
+
+#toolbar-container {
+	behavior: url("assets/PIE.htc");
+}
+
+#sp {
+	behavior: url("assets/PIE.htc");
+}
+
+.memu ul {
+	behavior: url("assets/PIE.htc");
+}
+
+#staticContent {
+	behavior: url("assets/PIE.htc");
+}
+
+#slideshow {
+	behavior: url("assets/PIE.htc");
+}
+
+#tinybox {
+	behavior: url("assets/PIE.htc");
+}
+
+.memu ul {
+	margin-top: -1px;
+}
